@@ -33,7 +33,7 @@ export const Title = styled.h2`
 
 export const Button = styled.a<{ primary?: boolean }>`
   background: ${props => props.primary ? props.theme.colors.gragasOrange : props.theme.colors.glassBg};
-  color: white;
+  color: ${props => props.theme.colors.white};
   padding: ${props => props.primary ? '1rem 2.5rem' : '0.8rem 1.8rem'};
   border: ${props => props.primary ? 'none' : `1px solid ${props.theme.colors.glassBorder}`};
   border-radius: ${props => props.primary ? '50px' : '12px'};
@@ -50,7 +50,8 @@ export const Button = styled.a<{ primary?: boolean }>`
   &:hover {
     transform: translateY(-5px);
     background: ${props => props.primary ? props.theme.colors.gragasOrange : 'rgba(255, 255, 255, 0.1)'};
-    border-color: ${props => props.primary ? 'transparent' : '#fff'};
+    border-color: ${props => props.primary ? 'transparent' : props.theme.colors.white};
     box-shadow: ${props => props.primary ? `0 20px 60px ${props.theme.colors.gragasGlow}` : 'none'};
   }
 `;
+

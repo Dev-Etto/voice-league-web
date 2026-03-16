@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "features": "Funcionalidades",
+    "how": "Como Usar",
+    "support": "Apoiar",
+    "github": "GitHub"
+  },
+  "hero": {
+    "title": "Sua Call de SoloQ \nAutomática",
+    "description": "O Voice League detecta suas partidas de League of Legends e cria canais de voz temporários instantaneamente para seu time.",
+    "cta": "Convidar para o Servidor"
+  },
+  "features": {
+    "title": "Pelo que o Barril Passa?",
+    "items": {
+      "monitoring": {
+        "title": "Monitoramento Ativo",
+        "description": "Usa a API da Riot Games para detectar em tempo real quando você entra no Rift."
+      },
+      "dynamic": {
+        "title": "Canais Dinâmicos",
+        "description": "Criação automática de salas de voz exclusivas que se auto-destroem após a partida."
+      },
+      "autojoin": {
+        "title": "Auto-Join",
+        "description": "Move você e seu duo/time automaticamente para o canal certo, sem cliques extras."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Como Começar a Farra",
+    "steps": {
+      "step1": {
+        "title": "Vincule sua conta",
+        "description": "Use o comando <cmd>/register</cmd> com seu Riot ID (Ex: Faker#KR1)."
+      },
+      "step2": {
+        "title": "Ative o Monitoramento",
+        "description": "Habilite o <cmd>/autojoin</cmd> para que o bot cuide de tudo por você."
+      },
+      "step3": {
+        "title": "Entre na Partida",
+        "description": "Assim que o jogo carregar, seu canal estará pronto te esperando."
+      }
+    }
+  },
+  "support": {
+    "title": "Pague uma Rodada pro Gragas",
+    "description": "O Voice League é um projeto open source. Suas doações mantêm os servidores ligados e nos ajudam a continuar melhorando o bot.",
+    "buttons": {
+      "coffee": "☕ Buy Me a Coffee",
+      "sponsors": "🛡️ GitHub Sponsors",
+      "contribute": "💻 Contribuir no Código"
+    },
+    "footerNote": "Todo valor arrecadado é reinvestido integralmente em infraestrutura e manutenção do serviço."
+  },
+  "footer": {
+    "links": {
+      "github": "GitHub",
+      "support": "Suporte",
+      "privacy": "Privacidade"
+    },
+    "copyright": "© 2024 Voice League por <linkAutor>Dev-Etto</linkAutor>. Inspirado em League of Legends.",
+    "subCopyright": "Não afiliado com a Riot Games."
+  }
+}
+
+

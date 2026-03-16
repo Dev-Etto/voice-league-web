@@ -1,6 +1,13 @@
 import styled from 'styled-components';
+
+import { useTranslation, Trans } from 'react-i18next';
 import { theme } from '../styles/theme';
+
 import { Container, Section, Title, Button } from './BaseComponents';
+import { ASSETS } from '../constants/assets';
+import { EXTERNAL_LINKS } from '../constants/links';
+import LanguageSwitcher from './LanguageSwitcher';
+
 
 const AppContainer = styled.div`
   position: relative;
@@ -30,24 +37,37 @@ const Logo = styled.div`
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -1px;
+  user-select: none;
+  -webkit-user-drag: none;
 
   img {
     width: 45px;
     height: 45px;
     border-radius: 50%;
     border: 2px solid ${props => props.theme.colors.accentBlue};
+    object-fit: cover;
+    pointer-events: none;
+    -webkit-user-drag: none;
   }
 `;
 
-const NavLinks = styled.div`
+
+const NavActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+`;
+
+const NavLinks = styled.ul`
   display: flex;
   gap: 2rem;
+  list-style: none;
 
   @media (max-width: 768px) {
     display: none;
   }
 
-  a {
+  li a {
     text-decoration: none;
     color: ${props => props.theme.colors.textDim};
     transition: 0.3s;
@@ -59,6 +79,7 @@ const NavLinks = styled.div`
   }
 `;
 
+
 const HeroSection = styled.header`
   position: relative;
   height: 90vh;
@@ -67,7 +88,7 @@ const HeroSection = styled.header`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: linear-gradient(to bottom, rgba(10, 20, 40, 0.2), ${props => props.theme.colors.primaryBg}), url('/assets/banner.png');
+  background-image: linear-gradient(to bottom, rgba(20, 20, 40, 0.2), ${props => props.theme.colors.primaryBg}), url(${ASSETS.HERO_BANNER});
   background-size: cover;
   background-position: center;
 
@@ -93,10 +114,12 @@ const HeroContent = styled.div`
     font-weight: 900;
     margin-bottom: 1rem;
     line-height: 1.1;
-    background: linear-gradient(to right, #fff, ${props => props.theme.colors.accentBlue});
+    background: linear-gradient(to right, ${props => props.theme.colors.white}, ${props => props.theme.colors.accentBlue});
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 20px ${props => props.theme.colors.accentGlow});
+    white-space: pre-line;
   }
 
   p {
@@ -215,63 +238,106 @@ const Footer = styled.footer`
     display: flex;
     justify-content: center;
     gap: 3rem;
+    list-style: none;
 
-    a {
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    li a {
       color: ${props => props.theme.colors.textDim};
       text-decoration: none;
       transition: 0.3s;
-      &:hover { color: #fff; }
+      &:hover { color: ${props => props.theme.colors.white}; }
     }
   }
+
 
   .copyright {
     font-size: 0.9rem;
     color: ${props => props.theme.colors.textDim};
+
+    a {
+      color: ${props => props.theme.colors.accentBlue};
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+
+      &:hover {
+        color: ${props => props.theme.colors.white};
+      }
+    }
   }
+
 `;
 
 export default function LandingPage() {
+  const { t } = useTranslation();
+
   return (
     <AppContainer>
       <Nav>
         <Logo>
-          <img src="/assets/logo.png" alt="VoiceLeague Logo" />
-          <span>VoiceLeague</span>
+          <img src={ASSETS.LOGO} alt="Voice League Logo" draggable="false" />
+          <span>Voice League</span>
         </Logo>
-        <NavLinks>
-          <a href="#features">Funcionalidades</a>
-          <a href="#how">Como Usar</a>
-          <a href="#support">Apoiar</a>
-          <a href="https://github.com/Dev-Etto/VoiceLeague" target="_blank">GitHub</a>
-        </NavLinks>
+
+        <NavActions>
+          <NavLinks>
+            <li><a href="#features">{t('nav.features')}</a></li>
+            <li><a href="#how">{t('nav.how')}</a></li>
+            <li><a href="#support">{t('nav.support')}</a></li>
+            <li>
+              <a 
+                href={EXTERNAL_LINKS.GITHUB_REPO} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {t('nav.github')}
+              </a>
+            </li>
+          </NavLinks>
+
+
+          <LanguageSwitcher />
+        </NavActions>
       </Nav>
 
       <HeroSection>
         <HeroContent>
-          <h1>Sua Call de SoloQ <br />Automática</h1>
-          <p>O VoiceLeague detecta suas partidas de League of Legends e cria canais de voz temporários instantaneamente para seu time.</p>
-          <Button primary href="https://discord.com" target="_blank">Convidar para o Servidor</Button>
+          <h1>{t('hero.title')}</h1>
+          <p>{t('hero.description')}</p>
+          <Button 
+            primary 
+            href={EXTERNAL_LINKS.BOT_INVITE} 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            {t('hero.cta')}
+          </Button>
         </HeroContent>
       </HeroSection>
 
+
       <Container>
         <Section id="features">
-          <Title>Pelo que o Barril Passa?</Title>
+          <Title>{t('features.title')}</Title>
           <FeaturesGrid>
             <FeatureCard>
-              <span>🛡️</span>
-              <h3>Monitoramento Ativo</h3>
-              <p>Usa a API da Riot Games para detectar em tempo real quando você entra no Rift.</p>
+              <span role="img" aria-hidden="true">🛡️</span>
+              <h3>{t('features.items.monitoring.title')}</h3>
+              <p>{t('features.items.monitoring.description')}</p>
             </FeatureCard>
             <FeatureCard>
-              <span>🔊</span>
-              <h3>Canais Dinâmicos</h3>
-              <p>Criação automática de salas de voz exclusivas que se auto-destroem após a partida.</p>
+              <span role="img" aria-hidden="true">🔊</span>
+              <h3>{t('features.items.dynamic.title')}</h3>
+              <p>{t('features.items.dynamic.description')}</p>
             </FeatureCard>
             <FeatureCard>
-              <span>⚡</span>
-              <h3>Auto-Join</h3>
-              <p>Move você e seu duo/time automaticamente para o canal certo, sem cliques extras.</p>
+              <span role="img" aria-hidden="true">⚡</span>
+              <h3>{t('features.items.autojoin.title')}</h3>
+              <p>{t('features.items.autojoin.description')}</p>
             </FeatureCard>
           </FeaturesGrid>
         </Section>
@@ -279,27 +345,38 @@ export default function LandingPage() {
 
       <HowItWorks id="how">
         <Container>
-          <Title>Como Começar a Farra</Title>
+          <Title>{t('howItWorks.title')}</Title>
           <StepsContainer>
             <StepItem>
-              <StepNumber>1</StepNumber>
+              <StepNumber aria-hidden="true">1</StepNumber>
               <div>
-                <h3>Vincule sua conta</h3>
-                <p>Use o comando <code>/register</code> com seu Riot ID (Ex: Faker#KR1).</p>
+                <h3>{t('howItWorks.steps.step1.title')}</h3>
+                <p>
+                  <Trans 
+                    i18nKey="howItWorks.steps.step1.description"
+                    components={{ cmd: <code /> }}
+                  />
+                </p>
               </div>
             </StepItem>
             <StepItem>
-              <StepNumber>2</StepNumber>
+              <StepNumber aria-hidden="true">2</StepNumber>
               <div>
-                <h3>Ative o Monitoramento</h3>
-                <p>Habilite o <code>/autojoin</code> para que o bot cuide de tudo por você.</p>
+                <h3>{t('howItWorks.steps.step2.title')}</h3>
+                <p>
+                  <Trans 
+                    i18nKey="howItWorks.steps.step2.description"
+                    components={{ cmd: <code /> }}
+                  />
+                </p>
               </div>
             </StepItem>
+
             <StepItem>
-              <StepNumber>3</StepNumber>
+              <StepNumber aria-hidden="true">3</StepNumber>
               <div>
-                <h3>Entre na Partida</h3>
-                <p>Assim que o jogo carregar, seu canal estará pronto te esperando.</p>
+                <h3>{t('howItWorks.steps.step3.title')}</h3>
+                <p>{t('howItWorks.steps.step3.description')}</p>
               </div>
             </StepItem>
           </StepsContainer>
@@ -309,33 +386,59 @@ export default function LandingPage() {
       <Section id="support">
         <Container>
           <DonationBox>
-            <Title>Pague uma Rodada pro Gragas</Title>
+            <Title>{t('support.title')}</Title>
             <p style={{ color: theme.colors.textDim, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-              O VoiceLeague é um projeto open source. Suas doações mantêm os servidores ligados e a API da Riot rodando em alto nível.
+              {t('support.description')}
             </p>
             <DonationGrid>
-              <Button href="#" target="_blank">☕ Buy Me a Coffee</Button>
-              <Button href="#" target="_blank">🛡️ GitHub Sponsors</Button>
-              <Button href="https://github.com/Dev-Etto/VoiceLeague" target="_blank">💻 Contribuir no Código</Button>
+              <Button href={EXTERNAL_LINKS.BUY_ME_A_COFFEE} target="_blank" rel="noopener noreferrer">
+                {t('support.buttons.coffee')}
+              </Button>
+              <Button href={EXTERNAL_LINKS.GITHUB_SPONSORS} target="_blank" rel="noopener noreferrer">
+                {t('support.buttons.sponsors')}
+              </Button>
+              <Button href={EXTERNAL_LINKS.GITHUB_REPO} target="_blank" rel="noopener noreferrer">
+                {t('support.buttons.contribute')}
+              </Button>
             </DonationGrid>
+
             <p style={{ marginTop: '2.5rem', fontSize: '0.9rem', color: theme.colors.textDim }}>
-              Todo valor arrecadado é reinvestido integralmente em infraestrutura.
+              {t('support.footerNote')}
             </p>
           </DonationBox>
         </Container>
       </Section>
 
       <Footer>
-        <div className="links">
-          <a href="https://github.com/Dev-Etto/VoiceLeague">GitHub</a>
-          <a href="#">Suporte</a>
-          <a href="#">Privacidade</a>
-        </div>
+        <ul className="links">
+          <li>
+            <a href={EXTERNAL_LINKS.GITHUB_REPO} target="_blank" rel="noopener noreferrer">
+              {t('footer.links.github')}
+            </a>
+          </li>
+          <li><a href="#">{t('footer.links.support')}</a></li>
+          <li><a href="#">{t('footer.links.privacy')}</a></li>
+        </ul>
         <div className="copyright">
-          &copy; 2024 VoiceLeague por Dev-Etto. Inspirado em League of Legends. <br />
-          Não afiliado com a Riot Games.
+          <Trans 
+            i18nKey="footer.copyright"
+            components={{
+              linkAutor: (
+                <a 
+                  href={EXTERNAL_LINKS.GITHUB_OWNER} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                />
+              )
+            }}
+          />
+          <br />
+          {t('footer.subCopyright')}
         </div>
+
       </Footer>
+
+
     </AppContainer>
   );
 }

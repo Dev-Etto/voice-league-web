@@ -10,8 +10,10 @@ export const theme = {
     textDim: '#9CA3AF',
     glassBg: 'rgba(255, 255, 255, 0.05)',
     glassBorder: 'rgba(255, 255, 255, 0.1)',
+    white: '#FFFFFF',
   },
   fonts: {
     main: "'Outfit', 'Inter', sans-serif",
   }
 };
+
