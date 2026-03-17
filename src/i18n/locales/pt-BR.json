@@ -1,58 +1,70 @@
 {
   "nav": {
     "features": "Funcionalidades",
-    "how": "Como Usar",
+    "how": "Guia do Invocador",
+    "conduct": "Código de Honra",
     "support": "Apoiar",
-    "github": "GitHub"
+    "github": "Código Aberto"
   },
   "hero": {
-    "title": "Sua Call de SoloQ \nAutomática",
-    "description": "O Voice League detecta suas partidas de League of Legends e cria canais de voz temporários instantaneamente para seu time.",
-    "cta": "Convidar para o Servidor"
+    "title": "A Primeira Call\nTotalmente Automática",
+    "description": "Foque no farm e no objetivo. O Voice League detecta sua partida e te move para um canal de voz com seu time instantaneamente.",
+    "cta": "Entrar no Rift via Discord"
   },
   "features": {
-    "title": "Pelo que o Barril Passa?",
+    "title": "Por que usar o Voice League?",
     "items": {
       "monitoring": {
-        "title": "Monitoramento Ativo",
-        "description": "Usa a API da Riot Games para detectar em tempo real quando você entra no Rift."
+        "title": "Partida em Tempo Real",
+        "description": "Monitoramento inteligente via API da Riot para identificar o exato momento em que o Nexus precisa de você."
       },
       "dynamic": {
-        "title": "Canais Dinâmicos",
-        "description": "Criação automática de salas de voz exclusivas que se auto-destroem após a partida."
+        "title": "Zero Poluição Visual",
+        "description": "Salas criadas sob demanda que desaparecem após o Nexus cair. Servidor sempre limpo."
       },
       "autojoin": {
-        "title": "Auto-Join",
-        "description": "Move você e seu duo/time automaticamente para o canal certo, sem cliques extras."
+        "title": "Auto-Join Inteligente",
+        "description": "Identificamos seu time e os reunimos automaticamente. Sem cliques, apenas estratégias."
       }
     }
   },
   "howItWorks": {
-    "title": "Como Começar a Farra",
+    "title": "Comandos do Invocador",
+    "setupOnce": "✨ **Configuração Única:** Você só precisa configurar uma vez, e o Voice League cuide de tudo para sempre.",
+    "discordNote": "⚠️ **Atenção:** Todos os comandos abaixo devem ser digitados no chat oficial do servidor do **Voice League**.",
+    "antiGhosting": "🛡️ **Fair Play:** Seguindo as diretrizes da Riot Games e para evitar ghosting, o bot só inicia a conexão após o término da Seleção de Campeões.",
     "steps": {
       "step1": {
-        "title": "Vincule sua conta",
-        "description": "Use o comando <cmd>/register</cmd> com seu Riot ID (Ex: Faker#KR1)."
+        "title": "/register",
+        "description": "Vincule seus <cmd>Riot IDs</cmd> (Ex: Faker#KR1). O bot monitora todas as suas contas conectadas simultaneamente."
       },
       "step2": {
-        "title": "Ative o Monitoramento",
-        "description": "Habilite o <cmd>/autojoin</cmd> para que o bot cuide de tudo por você."
+        "title": "/autojoin",
+        "description": "Ative ou desative a entrada automática. Você decide quando quer que o bot assuma o controle por conta própria."
       },
       "step3": {
-        "title": "Entre na Partida",
-        "description": "Assim que o jogo carregar, seu canal estará pronto te esperando."
+        "title": "/status & /unregister",
+        "description": "Consulte o estado do seu monitoramento ou remova todos os seus dados do sistema digitando estes comandos."
       }
     }
   },
+  "conduct": {
+    "title": "Código de Honra",
+    "rules": [
+      "Trate seu time com respeito (GGWP > Rage).",
+      "Proibido qualquer tipo de discurso de ódio ou assédio.",
+      "Foque em ter boas conversas, fazer amigos e subir de elo no processo."
+    ]
+  },
   "support": {
-    "title": "Pague uma Rodada pro Gragas",
-    "description": "O Voice League é um projeto open source. Suas doações mantêm os servidores ligados e nos ajudam a continuar melhorando o bot.",
+    "title": "Construído pela Comunidade",
+    "description": "O Voice League é um projeto Open Source. Você pode ajudar a manter os servidores ligados ou sugerir novas features diretamente no código.",
     "buttons": {
-      "coffee": "☕ Buy Me a Coffee",
-      "sponsors": "🛡️ GitHub Sponsors",
+      "coffee": "💰 Apoie-nos",
+      "sponsors": "🛡️ Tornar-se um Patrocinador",
       "contribute": "💻 Contribuir no Código"
     },
-    "footerNote": "Todo valor arrecadado é reinvestido integralmente em infraestrutura e manutenção do serviço."
+    "footerNote": "Todo valor arrecadado é reinvestido integralmente em infraestrutura. Distribuído sob Licença MIT."
   },
   "footer": {
     "links": {
@@ -64,5 +76,3 @@
     "subCopyright": "Não afiliado com a Riot Games."
   }
 }
-
-

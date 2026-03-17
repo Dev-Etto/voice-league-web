@@ -25,12 +25,17 @@ const Nav = styled.nav`
   z-index: 100;
   border-bottom: 1px solid ${props => props.theme.colors.glassBorder};
 
+  @media (max-width: 1024px) {
+    padding: 1.5rem 5%;
+  }
+
+
   @media (max-width: 768px) {
     padding: 1rem 5%;
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled.a`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -39,6 +44,13 @@ const Logo = styled.div`
   letter-spacing: -1px;
   user-select: none;
   -webkit-user-drag: none;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 
   img {
     width: 45px;
@@ -50,6 +62,7 @@ const Logo = styled.div`
     -webkit-user-drag: none;
   }
 `;
+
 
 
 const NavActions = styled.div`
@@ -172,6 +185,41 @@ const HowItWorks = styled(Section)`
   background: ${props => props.theme.colors.secondaryBg};
 `;
 
+const ConductContainer = styled.div`
+  background: ${props => props.theme.colors.glassBg};
+  border: 1px solid ${props => props.theme.colors.glassBorder};
+  padding: 3rem;
+  border-radius: 32px;
+  max-width: 800px;
+  margin: 4rem auto 0;
+  text-align: left;
+
+  ul {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  li {
+    display: flex;
+    gap: 12px;
+    color: ${props => props.theme.colors.textDim};
+    font-size: 1.1rem;
+
+    &::before {
+      content: '✔';
+      color: ${props => props.theme.colors.accentBlue};
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+`;
+
+
 const StepsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -190,7 +238,45 @@ const StepItem = styled.div`
     text-align: center;
     gap: 1.5rem;
   }
+
+  h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: ${props => props.theme.colors.white};
+    
+    /* Highlight command titles */
+    &::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: ${props => props.theme.colors.accentBlue};
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  strong {
+    color: ${props => props.theme.colors.accentBlue};
+    font-weight: 700;
+  }
+
+  code {
+    background: rgba(52, 152, 219, 0.2);
+    color: ${props => props.theme.colors.accentBlue};
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+  }
 `;
+
+
 
 const StepNumber = styled.div`
   min-width: 70px;
@@ -205,6 +291,39 @@ const StepNumber = styled.div`
   font-size: 1.8rem;
   box-shadow: 0 0 30px ${props => props.theme.colors.accentGlow};
 `;
+
+const AntiGhostingNotice = styled.div`
+  background: rgba(46, 204, 113, 0.05);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: ${props => props.theme.colors.textDim};
+  padding: 1.2rem 2rem;
+  border-radius: 16px;
+  max-width: 850px;
+  margin: 0 auto 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+
+  strong {
+    color: #2ecc71;
+  }
+`;
+
+const SetupInfoBox = styled(AntiGhostingNotice)`
+  background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(52, 152, 219, 0.02));
+  border-left: 4px solid ${props => props.theme.colors.accentBlue};
+  border-right: 1px solid rgba(52, 152, 219, 0.2);
+  border-top: 1px solid rgba(52, 152, 219, 0.2);
+  border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+  margin-bottom: 2rem;
+
+  strong {
+    color: ${props => props.theme.colors.white};
+  }
+`;
+
+
+
 
 const DonationBox = styled.div`
   background: linear-gradient(135deg, rgba(217, 119, 6, 0.1) 0%, rgba(10, 20, 40, 1) 100%);
@@ -278,7 +397,7 @@ export default function LandingPage() {
   return (
     <AppContainer>
       <Nav>
-        <Logo>
+        <Logo href="#hero">
           <img src={ASSETS.LOGO} alt="Voice League Logo" draggable="false" />
           <span>Voice League</span>
         </Logo>
@@ -287,6 +406,7 @@ export default function LandingPage() {
           <NavLinks>
             <li><a href="#features">{t('nav.features')}</a></li>
             <li><a href="#how">{t('nav.how')}</a></li>
+            <li><a href="#conduct">{t('nav.conduct')}</a></li>
             <li><a href="#support">{t('nav.support')}</a></li>
             <li>
               <a 
@@ -304,7 +424,7 @@ export default function LandingPage() {
         </NavActions>
       </Nav>
 
-      <HeroSection>
+      <HeroSection id="hero">
         <HeroContent>
           <h1>{t('hero.title')}</h1>
           <p>{t('hero.description')}</p>
@@ -346,15 +466,26 @@ export default function LandingPage() {
       <HowItWorks id="how">
         <Container>
           <Title>{t('howItWorks.title')}</Title>
+          
+          <SetupInfoBox>
+            <Trans i18nKey="howItWorks.setupOnce" />
+            <br />
+            <Trans i18nKey="howItWorks.discordNote" />
+          </SetupInfoBox>
+
+          <AntiGhostingNotice>
+            <Trans i18nKey="howItWorks.antiGhosting" />
+          </AntiGhostingNotice>
+
           <StepsContainer>
             <StepItem>
               <StepNumber aria-hidden="true">1</StepNumber>
               <div>
-                <h3>{t('howItWorks.steps.step1.title')}</h3>
+                <h3><code>{t('howItWorks.steps.step1.title')}</code></h3>
                 <p>
                   <Trans 
                     i18nKey="howItWorks.steps.step1.description"
-                    components={{ cmd: <code /> }}
+                    components={{ cmd: <strong /> }}
                   />
                 </p>
               </div>
@@ -362,11 +493,11 @@ export default function LandingPage() {
             <StepItem>
               <StepNumber aria-hidden="true">2</StepNumber>
               <div>
-                <h3>{t('howItWorks.steps.step2.title')}</h3>
+                <h3><code>{t('howItWorks.steps.step2.title')}</code></h3>
                 <p>
                   <Trans 
                     i18nKey="howItWorks.steps.step2.description"
-                    components={{ cmd: <code /> }}
+                    components={{ cmd: <strong /> }}
                   />
                 </p>
               </div>
@@ -375,15 +506,37 @@ export default function LandingPage() {
             <StepItem>
               <StepNumber aria-hidden="true">3</StepNumber>
               <div>
-                <h3>{t('howItWorks.steps.step3.title')}</h3>
-                <p>{t('howItWorks.steps.step3.description')}</p>
+                <h3><code>{t('howItWorks.steps.step3.title')}</code></h3>
+                <p>
+                  <Trans 
+                    i18nKey="howItWorks.steps.step3.description"
+                    components={{ cmd: <strong /> }}
+                  />
+                </p>
               </div>
             </StepItem>
+
           </StepsContainer>
         </Container>
       </HowItWorks>
 
+
+
+      <Section id="conduct">
+        <Container>
+          <Title>{t('conduct.title')}</Title>
+          <ConductContainer>
+            <ul>
+              {(t('conduct.rules', { returnObjects: true }) as string[]).map((rule, index) => (
+                <li key={index}>{rule}</li>
+              ))}
+            </ul>
+          </ConductContainer>
+        </Container>
+      </Section>
+
       <Section id="support">
+
         <Container>
           <DonationBox>
             <Title>{t('support.title')}</Title>
@@ -416,7 +569,7 @@ export default function LandingPage() {
               {t('footer.links.github')}
             </a>
           </li>
-          <li><a href="#">{t('footer.links.support')}</a></li>
+          <li><a href="#conduct">{t('footer.links.support')}</a></li>
           <li><a href="#">{t('footer.links.privacy')}</a></li>
         </ul>
         <div className="copyright">

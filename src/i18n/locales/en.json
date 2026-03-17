@@ -1,58 +1,70 @@
 {
   "nav": {
     "features": "Features",
-    "how": "How it works",
+    "how": "Summoner's Guide",
+    "conduct": "Code of Honor",
     "support": "Support",
-    "github": "GitHub"
+    "github": "Open Source"
   },
   "hero": {
-    "title": "Your SoloQ Call \nAutomatic",
-    "description": "Voice League detects your League of Legends matches and creates temporary voice channels instantly for your team.",
-    "cta": "Invite to Server"
+    "title": "The First Fully\nAutomatic Call",
+    "description": "Focus on CS and objectives. Voice League detects your match and moves you to a voice channel with your team instantly.",
+    "cta": "Join the Rift via Discord"
   },
   "features": {
-    "title": "What's in the Barrel?",
+    "title": "Why Voice League?",
     "items": {
       "monitoring": {
-        "title": "Active Monitoring",
-        "description": "Uses Riot Games API to detect in real-time when you enter the Rift."
+        "title": "Real-Time Match",
+        "description": "Smart monitoring via Riot API to identify the exact moment the Nexus needs you."
       },
       "dynamic": {
-        "title": "Dynamic Channels",
-        "description": "Automatic creation of exclusive voice rooms that auto-destroy after the match."
+        "title": "Zero Visual Clutter",
+        "description": "Channels created on demand that disappear after the Nexus falls. Always a clean server."
       },
       "autojoin": {
-        "title": "Auto-Join",
-        "description": "Moves you and your duo/team automatically to the right channel, no extra clicks."
+        "title": "Smart Auto-Join",
+        "description": "We identify your team and bring you together automatically. No clicks, just strategy."
       }
     }
   },
   "howItWorks": {
-    "title": "How to Start the Party",
+    "title": "Summoner Commands",
+    "setupOnce": "✨ **One-Time Setup:** You only need to set it up once, and Voice League handles everything forever.",
+    "discordNote": "⚠️ **Attention:** All commands below must be typed in the official **Voice League** server chat.",
+    "antiGhosting": "🛡️ **Fair Play:** Following Riot Games guidelines and to prevent ghosting, the bot only initiates the connection after Champion Selection ends.",
     "steps": {
       "step1": {
-        "title": "Link your account",
-        "description": "Use the <cmd>/register</cmd> command with your Riot ID (Ex: Faker#KR1)."
+        "title": "/register",
+        "description": "Link your <cmd>Riot IDs</cmd> (Ex: Faker#KR1). The bot monitors all your connected accounts simultaneously."
       },
       "step2": {
-        "title": "Enable Monitoring",
-        "description": "Enable <cmd>/autojoin</cmd> so the bot takes care of everything for you."
+        "title": "/autojoin",
+        "description": "Enable or disable automatic entry. You decide when the bot takes control on its own."
       },
       "step3": {
-        "title": "Join the Match",
-        "description": "As soon as the game loads, your channel will be ready waiting for you."
+        "title": "/status & /unregister",
+        "description": "Check your monitoring status or remove all your data from the system by typing these commands."
       }
     }
   },
+  "conduct": {
+    "title": "Code of Honor",
+    "rules": [
+      "Treat your team with respect (GGWP > Rage).",
+      "Zero tolerance for hate speech or harassment.",
+      "Focus on having good conversations, making friends, and climbing the rank in the process."
+    ]
+  },
   "support": {
-    "title": "Buy Gragas a Round",
-    "description": "Voice League is an open source project. Your donations keep the servers on and help us continue improving the bot.",
+    "title": "Built by the Community",
+    "description": "Voice League is an Open Source project. You can help keep the servers running or suggest new features directly in the code.",
     "buttons": {
-      "coffee": "☕ Buy Me a Coffee",
-      "sponsors": "🛡️ GitHub Sponsors",
-      "contribute": "💻 Contribute to Code"
+      "coffee": "💰 Support Us",
+      "sponsors": "🛡️ Become a Sponsor",
+      "contribute": "💻 Contribute Code"
     },
-    "footerNote": "Every amount raised is fully reinvested in infrastructure and service maintenance."
+    "footerNote": "Every amount raised is fully reinvested in infrastructure. Distributed under MIT License."
   },
   "footer": {
     "links": {
@@ -64,5 +76,3 @@
     "subCopyright": "Not affiliated with Riot Games."
   }
 }
-
-

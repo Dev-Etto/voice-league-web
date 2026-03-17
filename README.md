@@ -4,6 +4,8 @@
 
 Este projeto é a Landing Page do Voice League, um bot de Discord engenheirado para automatizar a comunicação de times de League of Legends. A página foi desenhada para converter novos usuários e facilitar o suporte da comunidade.
 
+🤖 **[Repositório do Bot (Core)](https://github.com/Dev-Etto/voice-league)**
+
 [![Vite](https://img.shields.io/badge/bundler-Vite-646CFF?logo=vite&logoColor=fff)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/UI-React-61DAFB?logo=react&logoColor=000)](https://reactjs.org/)
 [![Styled Components](https://img.shields.io/badge/styling-Styled--Components-DB7093?logo=styled-components&logoColor=fff)](https://styled-components.com/)
