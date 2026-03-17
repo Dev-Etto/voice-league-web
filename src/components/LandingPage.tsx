@@ -566,7 +566,7 @@ export default function LandingPage() {
               {t('footer.links.github')}
             </a>
           </li>
-          <li><a href="#conduct">{t('footer.links.support')}</a></li>
+          <li><a href="#support">{t('footer.links.support')}</a></li>
           <li><a href="#">{t('footer.links.privacy')}</a></li>
         </ul>
         <div className="copyright">
