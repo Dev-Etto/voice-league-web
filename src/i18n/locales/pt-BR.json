@@ -61,7 +61,6 @@
     "description": "O Voice League é um projeto Open Source. Você pode ajudar a manter os servidores ligados ou sugerir novas features diretamente no código.",
     "buttons": {
       "coffee": "💰 Apoie-nos",
-      "sponsors": "🛡️ Tornar-se um Patrocinador",
       "contribute": "💻 Contribuir no Código"
     },
     "footerNote": "Todo valor arrecadado é reinvestido integralmente em infraestrutura. Distribuído sob Licença MIT."

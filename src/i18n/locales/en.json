@@ -61,7 +61,6 @@
     "description": "Voice League is an Open Source project. You can help keep the servers running or suggest new features directly in the code.",
     "buttons": {
       "coffee": "💰 Support Us",
-      "sponsors": "🛡️ Become a Sponsor",
       "contribute": "💻 Contribute Code"
     },
     "footerNote": "Every amount raised is fully reinvested in infrastructure. Distributed under MIT License."

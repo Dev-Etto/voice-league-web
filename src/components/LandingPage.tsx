@@ -547,9 +547,6 @@ export default function LandingPage() {
               <Button href={EXTERNAL_LINKS.BUY_ME_A_COFFEE} target="_blank" rel="noopener noreferrer">
                 {t('support.buttons.coffee')}
               </Button>
-              <Button href={EXTERNAL_LINKS.GITHUB_SPONSORS} target="_blank" rel="noopener noreferrer">
-                {t('support.buttons.sponsors')}
-              </Button>
               <Button href={EXTERNAL_LINKS.GITHUB_REPO} target="_blank" rel="noopener noreferrer">
                 {t('support.buttons.contribute')}
               </Button>
