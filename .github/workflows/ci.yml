@@ -1,0 +1,41 @@
+name: CI - Voice League Web
+
+on:
+  pull_request:
+    branches: [main, staging, develop]
+  push:
+    branches: [main, staging, develop]
+
+jobs:
+  validate:
+    name: Setup & Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Code Quality (Lint)
+        # Valida padrões de código e Clean Code
+        run: bun run lint
+
+      - name: Type Checking
+        # Verificação estática de tipos TypeScript
+        run: bun run type-check
+
+      - name: Build Dry-Run
+        # Garante que a aplicação compila corretamente
+        run: bun run build
+        env:
+          VITE_BOT_INVITE_URL: ${{ secrets.VITE_BOT_INVITE_URL }}
+          VITE_GITHUB_OWNER_URL: ${{ secrets.VITE_GITHUB_OWNER_URL }}
+          VITE_GITHUB_REPO_URL: ${{ secrets.VITE_GITHUB_REPO_URL }}
+          VITE_BUY_ME_A_COFFEE_URL: ${{ secrets.VITE_BUY_ME_A_COFFEE_URL }}
